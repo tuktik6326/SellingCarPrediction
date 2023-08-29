@@ -1,5 +1,5 @@
 # Carprice_prediction
-- This carprice_prediction contains mainly app folder, jupyter notebook, dockerfile and docker-compose.
-- Jupyter notebook "Car_prediction.ipynb" is in source code folder.
+- This Selling Car Prediction System is in source_code folder, jupyter notebook, Car.Dockerfile and docker-compose.
 
-make updated to my read me
+
+If There are some documents changed, Please make updated to my read me.
