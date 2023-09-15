@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  dash:
+    command: python3 main.py
+    image: tuktik6326/ait-ml-dash:2023
+    platform: linux/x86_64
+    build:
+      context: .
+      dockerfile: Car.Dockerfile
+    ports:
+      - 9001:80
+    volumnes:
+      -./source_code:/root/code
+      -./.vscode-server:/root/.vscode-server
+    environment:
+      - HOST=0.0.0.0
+      - PORT=80

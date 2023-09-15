@@ -1,24 +1,14 @@
-version: '3'
+version: '3.9'
 
 services:
   dash:
     command: python3 main.py
-    image: carprediction:latest
+    image: tuktik6326/dash-demo-2:a2.0
     build: 
       context: .
       dockerfile: Car.Dockerfile
+    environment:
+      - HOST=0.0.0.0
+      - PORT=80
     ports:
-      - 9999:8050
-    volumes:
-       - ./source_code:/root/code
-       - ./.vscode-server/dash:/root/.vscode-server
-  dev:
-    image: carprediction:latest
-    build: 
-      context: .
-      dockerfile: Car.Dockerfile
-    volumes:
-       - ./source_code:/root/code
-       - ./.vscode-server/dev:/root/.vscode-server
-    
-  
+      - 4000:80

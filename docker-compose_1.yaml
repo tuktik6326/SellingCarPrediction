@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  dash:
+    command: python3 main.py
+    image: carprediction:latest 
+    build: 
+      context: .
+      dockerfile: Car.Dockerfile
+    ports:
+      - 9999:8050
+    volumes:
+       - ./source_code:/root/code
+       - ./.vscode-server/dash:/root/.vscode-server
+  dev:
+    image: carprediction:latest 
+    build: 
+      context: .
+      dockerfile: Car.Dockerfile
+    volumes:
+       - ./source_code:/root/code
+       - ./.vscode-server/dev:/root/.vscode-server
+    
+  

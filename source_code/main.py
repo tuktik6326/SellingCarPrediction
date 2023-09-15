@@ -71,10 +71,14 @@ def prediction (max_power, mileage, km_driven, submit):
         km_driven = df["km_driven"].median() # Fill in kilometers driven if doesn't been inserted
     if mileage == None:
         mileage = df["mileage"].mean() # Fill in mileage if dosen't been inserted
-    model = pickle.load(open("/root/code/car_prediction.model", 'rb')) # Import model
+    model = pickle.load(open("/root/code/A1Car_prediction.model", 'rb')) # Import old model 
     sample = np.array([[max_power, mileage, math.log(km_driven)]]) 
-    result = np.exp(model.predict(sample)) #Predict price
-    return f"The predicted selling car price is {int(result[0])}"
+    result = np.exp(model.predict(sample)) #Predict old model price
+    model1 = pickle.load(open("/root/code/model.pkl", 'rb')) # Import new model
+    sample1 = np.array([[max_power, mileage, math.log(km_driven)]]) 
+    result1 = np.exp(model1.predict(sample1)) #Predict new model price
+    return f"The predicted selling car price of old model is {int(result[0])} but the new model one is {int(result1[0])}"
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port='8050', debug=True)
